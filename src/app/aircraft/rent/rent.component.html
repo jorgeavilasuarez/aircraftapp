@@ -1,0 +1,44 @@
+<div appTheme  class="card">
+    <div class="card-body">
+        <form class="form">
+            <div class="row">
+                <div class="col-sm-2 p-0">
+                    <div class="form-group mx-sm-3 mb-3">
+                        <label class=" mx-sm-3">Ubicación</label>
+                        <input class="form-control" type="text" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group mx-sm-3 mb-3">
+                        <label class=" mx-sm-3">Salida</label>
+                        <input class="form-control" type="date" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group mx-sm-3 mb-3">
+                        <label class=" mx-sm-3">Llegada</label>
+                        <input class="form-control" type="date" />
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label class=" mx-sm-3">Pasajeros</label>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-1 p-0">
+                    <button type="button" (click)="search()" class="btn btn-block btn-primary mt-4">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<custom-table [showButtons]="false" [data]="results" [columns]="['Nombre','Modelo','Matricula','Tipo','Valor']"></custom-table>

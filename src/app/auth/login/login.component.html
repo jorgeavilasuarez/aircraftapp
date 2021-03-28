@@ -1,0 +1,20 @@
+<div appTheme class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="">Rol</label>
+            <select class="form-control" [(ngModel)]="role">
+                <option *ngFor='let rol of roles'>{{rol}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Usuario</label>
+            <input class="form-control" type="text" [value]="user" [(ngModel)]="user" />
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input class="form-control" type="password" [(ngModel)]="password" [value]="password" />
+        </div>
+        <button (click)='onLogin()' class="btn btn-primary">Ingresar</button>
+
+    </div>
+</div>

@@ -1,0 +1,2 @@
+<button *ngIf="mode!='edit'" (click)="clickToogle('edit')" class="btn btn-primary">Editar</button>
+<button  *ngIf="mode=='edit'" (click)="clickToogle('view')" class="btn btn-danger">Cancelar</button>

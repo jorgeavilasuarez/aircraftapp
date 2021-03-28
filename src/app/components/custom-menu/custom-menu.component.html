@@ -1,0 +1,30 @@
+<div class="card" appTheme>
+  <ul class="nav nav-fill nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0);" (click)="changeTheme()">
+        Cambiar tema
+      </a>
+    </li>
+
+    <li [appRole]="['admin']" class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/roles']">
+        Roles
+      </a>
+    </li>
+    <li [appRole]="['admin']" class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/users']">
+        Usuarios
+      </a>
+    </li>
+    <li [appRole]="['cliente','admin','piloto']" class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/aircraft/rent']">
+        Alquilar
+      </a>
+    </li>
+    <li [appRole]="['cliente','admin','piloto']" class="nav-item">
+      <a class="nav-link" href="javascript:void(0)" (click)='logout()'>
+        Cerrar sesion
+      </a>
+    </li>
+  </ul>
+</div>

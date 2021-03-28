@@ -1,0 +1,48 @@
+<div *ngIf="showButtons">
+    <action-buttons (changeMode)="mode=$event"></action-buttons>
+</div>
+
+<table appTheme  *ngIf="data.length" class="table table-hover mt-1">
+    <thead>
+        <tr>
+            <th *ngFor="let column of columns; let i = index">
+                {{column}}
+            </th>
+            <th *ngIf="mode=='edit'">
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data; let i = index;trackBy:trackByIndex;">
+            <ng-container *ngIf="!isString(item[0]);else tplsimple">
+                <td *ngFor='let prop of item | keyvalue'>
+                    <div *ngIf="mode!='edit';else tplEdit">
+                        {{prop.value}}
+                    </div>
+                    <ng-template #tplEdit>
+                        <div>
+                            <input class="form-control"  type="text" [(ngModel)]="prop.value" />
+                        </div>
+                    </ng-template>
+                </td>
+            </ng-container>
+            <ng-template #tplsimple>
+                <td>
+                    <div *ngIf="mode!='edit';else tplEdit">
+                        {{item}}
+                    </div>
+                    <ng-template #tplEdit>
+                        <div>
+                            <input class="form-control"  type="text" [(ngModel)]="data[i]" />
+                        </div>
+                    </ng-template>
+                </td>
+            </ng-template>
+            <td *ngIf="mode=='edit'">
+                <button (click)="delete(i)" class="btn btn-danger mr-1">Eliminar</button>
+                <button (click)="save(i)" class="btn btn-primary">Guardar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
